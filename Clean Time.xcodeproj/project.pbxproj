@@ -56,15 +56,47 @@
 		7C6A05931C373DDE00CD4B20 /* Clean Time */ = {
 			isa = PBXGroup;
 			children = (
+				7C6A05AC1C373E3800CD4B20 /* Model */,
+				7C6A05AB1C373E3400CD4B20 /* View */,
+				7C6A05AA1C373E2C00CD4B20 /* Controller */,
+				7C6A05A91C373E2500CD4B20 /* Utility */,
 				7C6A05941C373DDE00CD4B20 /* AppDelegate.swift */,
-				7C6A05961C373DDE00CD4B20 /* ViewController.swift */,
-				7C6A05981C373DDE00CD4B20 /* Main.storyboard */,
 				7C6A059E1C373DDE00CD4B20 /* Assets.xcassets */,
-				7C6A05A01C373DDE00CD4B20 /* LaunchScreen.storyboard */,
 				7C6A05A31C373DDE00CD4B20 /* Info.plist */,
-				7C6A059B1C373DDE00CD4B20 /* Clean_Time.xcdatamodeld */,
 			);
 			path = "Clean Time";
+			sourceTree = "<group>";
+		};
+		7C6A05A91C373E2500CD4B20 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		7C6A05AA1C373E2C00CD4B20 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C6A05961C373DDE00CD4B20 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7C6A05AB1C373E3400CD4B20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C6A05A01C373DDE00CD4B20 /* LaunchScreen.storyboard */,
+				7C6A05981C373DDE00CD4B20 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7C6A05AC1C373E3800CD4B20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C6A059B1C373DDE00CD4B20 /* Clean_Time.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +131,7 @@
 				TargetAttributes = {
 					7C6A05901C373DDE00CD4B20 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5K99777NES;
 					};
 				};
 			};
@@ -253,7 +286,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Clean Time/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Clean-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -264,7 +299,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Clean Time/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Clean-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
