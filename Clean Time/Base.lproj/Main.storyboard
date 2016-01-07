@@ -63,7 +63,7 @@
                                     <constraint firstAttribute="height" constant="20" id="QiF-rC-I3Y"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCW-sg-6oT" userLabel="Timer View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCW-sg-6oT" userLabel="Timer View" customClass="ContentViewDesign" customModule="Clean_Time" customModuleProvider="target">
                                 <rect key="frame" x="180" y="90" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSM-Jr-jxi" userLabel="timerLabel">
@@ -86,7 +86,7 @@
                                     <constraint firstItem="BSM-Jr-jxi" firstAttribute="centerX" secondItem="jCW-sg-6oT" secondAttribute="centerX" id="xRo-dX-S4E"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-ak-7CH" userLabel="Time Options View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-ak-7CH" userLabel="Time Options View" customClass="ContentViewDesign" customModule="Clean_Time" customModuleProvider="target">
                                 <rect key="frame" x="151" y="248" width="298" height="93"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZr-gC-2rt">
