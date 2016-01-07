@@ -66,7 +66,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCW-sg-6oT" userLabel="Timer View" customClass="ContentViewDesign" customModule="Clean_Time" customModuleProvider="target">
                                 <rect key="frame" x="180" y="90" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSM-Jr-jxi" userLabel="timerLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="37" translatesAutoresizingMaskIntoConstraints="NO" id="BSM-Jr-jxi" userLabel="timerLabel">
                                         <rect key="frame" x="28" y="20" width="184" height="88"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -110,6 +110,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ctAddBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KOF-qQ-MU6"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxz-hy-aGo" userLabel="ctTextField">
                                         <rect key="frame" x="20" y="27" width="63" height="58"/>
@@ -119,8 +122,8 @@
                                             <constraint firstAttribute="height" constant="58" id="yZq-0K-3Ig"/>
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="c0F-Ii-mpg"/>
@@ -141,6 +144,9 @@ H+KAkw
 </string>
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ctMinusBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7zM-BJ-K9R"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvn-n7-op1">
                                         <rect key="frame" x="178" y="8" width="100" height="19"/>
@@ -163,8 +169,11 @@ H+KAkw
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btAddBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="crT-er-RGH"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="55" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-ia-yyL" userLabel="btTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="55" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-ia-yyL" userLabel="btTextField">
                                         <rect key="frame" x="178" y="27" width="63" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="R5L-qT-Ydi"/>
@@ -172,7 +181,7 @@ H+KAkw
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJF-Dw-U07" userLabel="btMinusBtn">
                                         <rect key="frame" x="241" y="56" width="37" height="29"/>
@@ -188,6 +197,9 @@ H+KAkw
 </string>
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btMinusBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m3t-dd-OfV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.7843137255" green="0.90196078430000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -240,6 +252,9 @@ H+KAkw
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NiJ-Al-vKL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyo-JX-9dA">
                                 <rect key="frame" x="302" y="498" width="93" height="33"/>
@@ -252,6 +267,9 @@ H+KAkw
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="stopBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3k-aD-A4W"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zn-hF-iI6" userLabel="startCleaningBtn">
                                 <rect key="frame" x="205" y="430" width="190" height="60"/>
@@ -264,6 +282,9 @@ H+KAkw
                                 <state key="normal" title="Start Cleaning">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startCleaningBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hae-Ru-20r"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.96078431372549022" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -295,6 +316,11 @@ H+KAkw
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="btTextField" destination="ksB-ia-yyL" id="LHD-Qi-gPZ"/>
+                        <outlet property="ctTextField" destination="Vxz-hy-aGo" id="eD4-ad-PAG"/>
+                        <outlet property="timerLabel" destination="BSM-Jr-jxi" id="gA1-RL-rLh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
