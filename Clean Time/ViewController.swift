@@ -14,12 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var ctTextField: UITextField!
     @IBOutlet weak var btTextField: UITextField!
     
-    var ctNumber = 5
-    var ctNumberTime = 5
+
     var btNumber = 55
     var timer = NSTimer()
-    var timerRunning = false
+
     var timerStopped = false
+    var cleanEndDate: NSDate?
     
     func intToTime(seconds: Int) -> (Int, Int) {
         return ((seconds % 3600) / 60, (seconds % 3600) % 60)
@@ -32,18 +32,18 @@ class ViewController: UIViewController {
     }
     
     func countdown() {
-        if self.ctNumberTime > 0 {
-            self.ctNumberTime--
-            self.timerLabel.text = self.printTime(self.ctNumberTime)
+        if ctNumberTime > 0 {
+            ctNumberTime--
+            self.timerLabel.text = self.printTime(ctNumberTime)
         } else {
             self.timer.invalidate()
-            self.timerRunning = false
+            timerRunning = false
             self.cleanDoneNotif()
         }
     }
     
     func updateCT() {
-        self.ctTextField.text = "\(self.ctNumber)"
+        self.ctTextField.text = "\(ctNumber)"
     }
     
     func updateBT() {
@@ -54,7 +54,8 @@ class ViewController: UIViewController {
         let localNotif = UILocalNotification()
         localNotif.alertAction = "Open Clean Time"
         localNotif.alertBody = "Your clean timer has finished. You can take your break now."
-        
+        localNotif.fireDate = self.cleanEndDate
+        localNotif.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(localNotif)
     }
 
@@ -70,19 +71,19 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.ctNumber = Int(self.ctTextField.text!)!
+        ctNumber = Int(self.ctTextField.text!)!
         self.btNumber = Int(self.btTextField.text!)!
         self.view.endEditing(true)
     }
     
     @IBAction func ctAddBtnPressed(sender: UIButton) {
-        self.ctNumber++
+        ctNumber++
         self.updateCT()
     }
     
     @IBAction func ctMinusBtnPressed(sender: UIButton) {
-        if self.ctNumber > 1 {
-            self.ctNumber--
+        if ctNumber > 1 {
+            ctNumber--
             self.updateCT()
         }
     }
@@ -100,30 +101,34 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startCleaningBtnPressed(sender: UIButton) {
-        if !self.timerRunning {
+        if !timerRunning {
             if !self.timerStopped {
-                self.timerLabel.text = "\(self.ctNumber):00"
-                self.ctNumberTime = self.ctNumber * 60
+                cleanStartDate = NSDate()
+                self.timerLabel.text = "\(ctNumber):00"
+                ctNumberTime = ctNumber * 60
+                self.cleanEndDate = NSDate().dateByAddingTimeInterval(Double(ctNumberTime))
+                print(self.cleanEndDate)
+                self.cleanDoneNotif()
             }
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
-            self.timerRunning = true
+            timerRunning = true
             self.timerStopped = false
         }
     }
     
     @IBAction func stopBtnPressed(sender: UIButton) {
-        if self.timerRunning {
+        if timerRunning {
             self.timer.invalidate()
-            self.timerRunning = false
+            timerRunning = false
             self.timerStopped = true
         }
     }
     
     @IBAction func resetBtnPressed(sender: UIButton) {
-        if self.timerRunning {
+        if timerRunning {
             self.timer.invalidate()
         }
-        self.timerRunning = false
+        timerRunning = false
         self.timerLabel.text = "0:00"
     }
 
