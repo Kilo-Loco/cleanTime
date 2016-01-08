@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         } else {
             self.timer.invalidate()
             self.timerRunning = false
+            self.cleanDoneNotif()
         }
     }
     
@@ -47,6 +48,14 @@ class ViewController: UIViewController {
     
     func updateBT() {
         self.btTextField.text = "\(self.btNumber)"
+    }
+    
+    func cleanDoneNotif() {
+        let localNotif = UILocalNotification()
+        localNotif.alertAction = "Open Clean Time"
+        localNotif.alertBody = "Your clean timer has finished. You can take your break now."
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotif)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -118,6 +127,7 @@ class ViewController: UIViewController {
         self.timerLabel.text = "0:00"
     }
 
+    
 
 }
 
