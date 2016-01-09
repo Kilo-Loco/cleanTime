@@ -17,7 +17,6 @@ class ViewController: UIViewController {
 
     var btNumber = 55
     var timer = NSTimer()
-
     var timerStopped = false
     var cleanEndDate: NSDate?
     
@@ -110,6 +109,7 @@ class ViewController: UIViewController {
                 print(self.cleanEndDate)
                 self.cleanDoneNotif()
             }
+            timerUnstopDate = NSDate()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
             timerRunning = true
             self.timerStopped = false
@@ -119,6 +119,7 @@ class ViewController: UIViewController {
     @IBAction func stopBtnPressed(sender: UIButton) {
         if timerRunning {
             self.timer.invalidate()
+            timerStopDate = NSDate()
             timerRunning = false
             self.timerStopped = true
         }

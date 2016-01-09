@@ -12,9 +12,13 @@ var cleanStartDate: NSDate?
 var ctNumber = 5
 var ctNumberTime = 5
 var timerRunning = false
+var timerStopDate: NSDate?
+var timerUnstopDate: NSDate?
 
 func updateTimer() {
     let now = NSDate()
-    ctNumberTime = (ctNumber * 60) - Int(now.timeIntervalSinceDate(cleanStartDate!))
-
+    let originalTime = ctNumber * 60
+    let elapsedStartTime = Int(now.timeIntervalSinceDate(cleanStartDate!))
+    let elapsedStopTime = Int(timerUnstopDate!.timeIntervalSinceDate(timerStopDate!))
+    ctNumberTime = originalTime - elapsedStartTime + elapsedStopTime
 }
