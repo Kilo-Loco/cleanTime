@@ -123,6 +123,20 @@ class ViewController: UIViewController {
             timerRunning = false
             self.timerStopped = true
         }
+        
+        
+        // add uidtodelete
+        var app:UIApplication = UIApplication.sharedApplication()
+        for oneEvent in app.scheduledLocalNotifications! {
+            var notification = oneEvent as UILocalNotification
+            let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
+            let uid = userInfoCurrent["uid"]! as! String
+            if uid == uidtodelete {
+                //Cancelling local notification
+                app.cancelLocalNotification(notification)
+                break;
+            }
+        }
     }
     
     @IBAction func resetBtnPressed(sender: UIButton) {
