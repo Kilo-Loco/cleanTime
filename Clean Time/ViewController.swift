@@ -56,6 +56,8 @@ class ViewController: UIViewController {
         localNotif.fireDate = self.cleanEndDate
         localNotif.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(localNotif)
+        
+        print("called clean done notification")
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -122,21 +124,12 @@ class ViewController: UIViewController {
             timerStopDate = NSDate()
             timerRunning = false
             self.timerStopped = true
+            
+            
+            UIApplication.sharedApplication().cancelAllLocalNotifications()
         }
         
         
-        // add uidtodelete
-//        var app:UIApplication = UIApplication.sharedApplication()
-//        for oneEvent in app.scheduledLocalNotifications! {
-//            var notification = oneEvent as UILocalNotification
-//            let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
-//            let uid = userInfoCurrent["uid"]! as! String
-//            if uid == uidtodelete {
-//                //Cancelling local notification
-//                app.cancelLocalNotification(notification)
-//                break;
-//            }
-//        }
     }
     
     @IBAction func resetBtnPressed(sender: UIButton) {
