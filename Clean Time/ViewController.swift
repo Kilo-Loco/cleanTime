@@ -112,6 +112,7 @@ class ViewController: UIViewController {
                 self.cleanDoneNotif()
             }
             timerUnstopDate = NSDate()
+            self.cleanEndDate = timerUnstopDate?.dateByAddingTimeInterval(Double(ctNumberTime))
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
             timerRunning = true
             self.timerStopped = false
@@ -127,6 +128,7 @@ class ViewController: UIViewController {
             
             
             UIApplication.sharedApplication().cancelAllLocalNotifications()
+            print("stop pressed")
         }
         
         
