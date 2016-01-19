@@ -30,6 +30,10 @@ class ViewController: UIViewController {
         return "\(m):\(secString)"
     }
     
+    func reset() {
+        
+    }
+    
     func countdown() {
         if ctNumberTime > 0 {
             ctNumberTime--
@@ -38,6 +42,7 @@ class ViewController: UIViewController {
             self.timer.invalidate()
             timerRunning = false
             self.cleanDoneNotif()
+            timerStopDate = nil
         }
     }
     
@@ -58,6 +63,7 @@ class ViewController: UIViewController {
         UIApplication.sharedApplication().scheduleLocalNotification(localNotif)
         
         print("called clean done notification")
+        print(ctNumberTime)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
