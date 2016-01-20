@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var timer = NSTimer()
     var timerStopped = false
     var cleanEndDate: NSDate?
+    var breakEndDate: NSDate?
     
     func intToTime(seconds: Int) -> (Int, Int) {
         return ((seconds % 3600) / 60, (seconds % 3600) % 60)
@@ -30,10 +31,6 @@ class ViewController: UIViewController {
         return "\(m):\(secString)"
     }
     
-    func reset() {
-        
-    }
-    
     func countdown() {
         if ctNumberTime > 0 {
             ctNumberTime--
@@ -42,6 +39,7 @@ class ViewController: UIViewController {
             self.timer.invalidate()
             timerRunning = false
             self.cleanDoneNotif()
+            self.breakDoneNotif()
             timerStopDate = nil
         }
     }
@@ -62,8 +60,18 @@ class ViewController: UIViewController {
         localNotif.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(localNotif)
         
-        print("called clean done notification")
-        print(ctNumberTime)
+        print("called clean done notification at \(NSDate())")
+    }
+    
+    func breakDoneNotif() {
+        let localNotif = UILocalNotification()
+        localNotif.alertAction = "Open Clean Time"
+        localNotif.alertBody = "It's Clean Time!"
+        localNotif.fireDate = self.breakEndDate
+        localNotif.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotif)
+    
+        print("called break done notification at \(NSDate())")
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -114,11 +122,13 @@ class ViewController: UIViewController {
                 self.timerLabel.text = "\(ctNumber):00"
                 ctNumberTime = ctNumber * 60
                 self.cleanEndDate = NSDate().dateByAddingTimeInterval(Double(ctNumberTime))
-                print(self.cleanEndDate)
-                self.cleanDoneNotif()
+                print(" clean end date is: \(self.cleanEndDate)")
+                //self.cleanDoneNotif()
             }
             timerUnstopDate = NSDate()
             self.cleanEndDate = timerUnstopDate?.dateByAddingTimeInterval(Double(ctNumberTime))
+            self.breakEndDate = self.cleanEndDate?.dateByAddingTimeInterval(Double(self.btNumber * 60))
+            print("Break end date is: \(self.breakEndDate!)")
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
             timerRunning = true
             self.timerStopped = false
