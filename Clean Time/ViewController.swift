@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         } else {
             self.timer.invalidate()
             timerRunning = false
-            self.cleanDoneNotif()
             self.breakDoneNotif()
             timerStopDate = nil
         }
@@ -123,11 +122,13 @@ class ViewController: UIViewController {
                 ctNumberTime = ctNumber * 60
                 self.cleanEndDate = NSDate().dateByAddingTimeInterval(Double(ctNumberTime))
                 print(" clean end date is: \(self.cleanEndDate)")
-                //self.cleanDoneNotif()
+                
             }
+            self.cleanDoneNotif()
             timerUnstopDate = NSDate()
             self.cleanEndDate = timerUnstopDate?.dateByAddingTimeInterval(Double(ctNumberTime))
             self.breakEndDate = self.cleanEndDate?.dateByAddingTimeInterval(Double(self.btNumber * 60))
+            self.breakDoneNotif()
             print("Break end date is: \(self.breakEndDate!)")
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
             timerRunning = true
@@ -157,8 +158,5 @@ class ViewController: UIViewController {
         timerRunning = false
         self.timerLabel.text = "0:00"
     }
-
-    
-
 }
 
