@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="White Logo" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-Dv-nil">
+                                <rect key="frame" x="118" y="117" width="365" height="365"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="365" id="XBc-nc-I9l"/>
+                                    <constraint firstAttribute="width" constant="365" id="XIQ-7h-hu1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="kzG-Dv-nil" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XIC-e6-0kW"/>
+                            <constraint firstItem="kzG-Dv-nil" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dkh-dv-3Kg"/>
+                            <constraint firstItem="kzG-Dv-nil" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="97" id="eYr-eM-Xbk"/>
+                            <constraint firstItem="kzG-Dv-nil" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="98" id="thD-AF-N3p"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eYr-eM-Xbk"/>
+                                <exclude reference="thD-AF-N3p"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +46,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="White Logo" width="500" height="500"/>
+    </resources>
 </document>
