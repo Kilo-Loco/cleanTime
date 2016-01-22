@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btTextField: UITextField!
     
 
-    var btNumber = 55
+    var btNumber: Int = 55
     var timer = NSTimer()
     var timerStopped = false
     var cleanEndDate: NSDate?
@@ -85,9 +85,11 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if Int(self.ctTextField.text!)! != nil {
         ctNumber = Int(self.ctTextField.text!)!
         self.btNumber = Int(self.btTextField.text!)!
         self.view.endEditing(true)
+        }
     }
     
     @IBAction func ctAddBtnPressed(sender: UIButton) {

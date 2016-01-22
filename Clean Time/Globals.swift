@@ -9,7 +9,7 @@
 import Foundation
 
 var cleanStartDate: NSDate?
-var ctNumber = 5
+var ctNumber: Int = 5
 var ctNumberTime = 5
 var timerRunning = false
 var timerStopDate: NSDate?
