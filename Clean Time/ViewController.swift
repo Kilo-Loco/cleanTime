@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var ctTextField: UITextField!
     @IBOutlet weak var btTextField: UITextField!
     
-
     var btNumber: Int = 55
     var timer = NSTimer()
     var timerStopped = false
@@ -85,11 +84,17 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if Int(self.ctTextField.text!)! != nil {
+        guard Int(self.ctTextField.text!) != nil && Int(self.btTextField.text!) != nil else {
+            let alertController: UIAlertController = UIAlertController(title: "Invalid Number", message: "Please enter an integer.", preferredStyle: .Alert)
+            let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+            alertController.addAction(alertAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
         ctNumber = Int(self.ctTextField.text!)!
         self.btNumber = Int(self.btTextField.text!)!
         self.view.endEditing(true)
-        }
+        
     }
     
     @IBAction func ctAddBtnPressed(sender: UIButton) {
@@ -145,12 +150,9 @@ class ViewController: UIViewController {
             timerRunning = false
             self.timerStopped = true
             
-            
             UIApplication.sharedApplication().cancelAllLocalNotifications()
             print("stop pressed")
         }
-        
-        
     }
     
     @IBAction func resetBtnPressed(sender: UIButton) {
