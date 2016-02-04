@@ -14,6 +14,7 @@ var ctNumberTime = 5
 var timerRunning = false
 var timerStopDate: NSDate?
 var timerUnstopDate: NSDate?
+var timerDone = false
 
 func updateTimer() {
     let now = NSDate()
@@ -23,5 +24,8 @@ func updateTimer() {
     if timerStopDate != nil {
         let elapsedStopTime = Int(timerUnstopDate!.timeIntervalSinceDate(timerStopDate!))
         ctNumberTime += elapsedStopTime
+    }
+    if timerDone {
+        
     }
 }

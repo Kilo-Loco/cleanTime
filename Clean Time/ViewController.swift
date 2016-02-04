@@ -83,6 +83,10 @@ class ViewController: UIViewController {
         self.timerLabel.text = "0:00"
     }
     
+    override func viewDidAppear(animated: Bool) {
+        print("ohai")
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         guard Int(self.ctTextField.text!) != nil && Int(self.btTextField.text!) != nil else {
             let alertController: UIAlertController = UIAlertController(title: "Invalid Number", message: "Please enter an integer.", preferredStyle: .Alert)
